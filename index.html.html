@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Road Ahead | Crew Expedition Log</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0f17; }
+        .serif-title { font-family: 'Playfair Display', serif; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0b0f17; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    </style>
+</head>
+<body class="text-slate-200 antialiased pb-24 selection:bg-sky-500/30">
+
+    <div id="start-overlay" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 transition-opacity duration-700 ease-in-out px-4 text-center">
+        <h2 class="serif-title text-4xl md:text-5xl text-white mb-8 tracking-wide leading-tight">ready for the guudddhhhaaaa goyyyaaa trip?</h2>
+        <button id="start-btn" class="px-8 py-4 bg-sky-500/20 text-sky-400 border border-sky-500/50 rounded-xl font-bold tracking-[0.2em] uppercase hover:bg-sky-500 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(56,189,248,0.2)]">
+            Start Expedition
+        </button>
+    </div>
+
+    <audio id="bg-audio" loop>
+        <source src="addons/dil_chahta_hai.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#0b0f17]">
+        <img src="addons/hero_bg.jpg" alt="Journey Begins Background" class="absolute inset-0 w-full h-full object-cover opacity-50">
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f17] via-[#0b0f17]/60 to-transparent"></div>
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <span class="text-xs tracking-[0.4em] uppercase text-sky-400 font-medium block mb-4">The Ultimate Crew Road Trip</span>
+            <h1 class="serif-title text-5xl md:text-8xl font-normal tracking-tight text-white mb-6">
+                Journey Begins<br><span class="italic font-light text-slate-300">With The Boys</span>
+            </h1>
+            <p class="text-sm md:text-base text-slate-400 max-w-md mx-auto tracking-wide font-light">
+                Our active reference for the 6.5-day coastal sprint. Windows down, music up, zero schedules.
+            </p>
+            <div class="mt-12">
+                <a href="#itinerary" class="text-xs tracking-[0.2em] uppercase text-slate-500 hover:text-white transition-colors">Launch Timeline ↓</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-xl bg-slate-900/80 backdrop-blur-md border border-slate-800 p-4 rounded-2xl shadow-2xl flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <button id="audio-toggle-btn" class="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center border border-sky-500/30 cursor-pointer transition-transform active:scale-95">
+                <span id="audio-icon" class="text-lg">🔇</span>
+            </button>
+            <div>
+                <div class="text-xs text-slate-400 font-medium tracking-wide">ROAD TRIP SOUNDTRACK</div>
+                <div id="aux-track" class="text-sm text-white font-semibold">Dil Chahta Hai - Title Track</div>
+            </div>
+        </div>
+        <div class="bg-sky-500/10 text-sky-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-sky-500/20 tracking-wider">
+            VIBE LEVEL: MAX
+        </div>
+    </div>
+
+    <main id="itinerary" class="max-w-6xl mx-auto px-4 md:px-8 py-24 space-y-32">
+
+        <section class="relative border-l border-sky-500/20 pl-6 md:pl-12 ml-2 md:ml-6 space-y-24">
+            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-sky-500 ring-4 ring-sky-950"></div>
+            <div class="mb-12">
+                <span class="text-xs uppercase tracking-[0.3em] text-sky-400 font-semibold">Part I</span>
+                <h2 class="serif-title text-3xl md:text-5xl text-white font-medium mt-1">Exploring Goa <span class="text-lg font-light text-slate-500 serif-title italic">(Days 1-3)</span></h2>
+            </div>
+
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">DAY 01</span>
+                        <h3 class="serif-title text-xl md:text-3xl text-slate-100">North Goa: Lakes & Party Vibes</h3>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs bg-slate-900/60 border border-slate-800 p-2 rounded-lg">
+                        <span class="text-slate-400"><b class="text-sky-400">Pilot:</b> <span class="font-bold text-white text-sm tracking-wide">RamPandu 400</span></span>
+                        <span class="text-slate-700">|</span>
+                        <span class="text-slate-400"><b class="text-emerald-400">Nav:</b> <span class="font-bold text-white text-sm tracking-wide">sureezzz bhaii</span></span>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">☀️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-sky-400 uppercase font-semibold">Morning</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-4">
+                            <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                                <img src="addons/arambol.jpg" alt="Arambol Beach" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500 fallback-bg">
+                            </div>
+                            <div class="flex justify-between items-center px-1">
+                                <h4 class="text-base font-semibold text-white tracking-wide">Arambol Beach & Sweet Water Lake</h4>
+                                <span class="text-[10px] text-slate-500 font-mono tracking-widest bg-slate-800/50 px-2 py-0.5 rounded border border-slate-700 shrink-0 ml-2">ARAMBOL - MORJIM</span>
+                            </div>
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/40 border border-sky-500/10 space-y-4 h-full flex flex-col justify-center">
+                            <div class="w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sm">🏊‍♂️</div>
+                            <h5 class="text-sm font-semibold text-slate-200">The Plan</h5>
+                            <p class="text-xs text-sky-300 italic font-light leading-relaxed bg-sky-950/30 p-3 rounded-lg border border-sky-800/30">
+                                "Ee lake llo diguthamu swim cheyytaniki antey e place vellachhu."
+                            </p>
+                            <p class="text-sm text-slate-400 leading-relaxed font-light">
+                                Head to Arambol for a morning swim sequence. <span class="font-semibold text-amber-400">Or else skip this place</span> entirely and shift the strategy to exploring **Sinquerim Fort & Beach** early in the day.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-slate-800/40">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🌤️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-amber-500 uppercase font-semibold">Late Afternoon</h4>
+                        <span class="text-[10px] text-slate-500 font-mono ml-2 border-l border-slate-700 pl-2">3:30 PM - 5:30 PM</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                            <img src="addons/aguada.jpg" alt="Fort Aguada" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full">
+                            <span class="text-[10px] text-slate-500 font-mono tracking-widest uppercase block">CALANGUTE - ANJUNA LEG</span>
+                            <h4 class="font-semibold text-xl text-white">Fort Aguada</h4>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Dedicate this mid-afternoon block to exploring the vast ramparts and historic lighthouse structures at Fort Aguada as the intense daylight softens down.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-slate-800/40">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🌙</span>
+                        <h4 class="text-sm font-mono tracking-widest text-indigo-400 uppercase font-semibold">Evening</h4>
+                        <span class="text-[10px] text-slate-500 font-mono ml-2 border-l border-slate-700 pl-2">5:30 PM ONWARDS</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-4 h-full order-2 md:order-1">
+                            <div>
+                                <h4 class="font-semibold text-xl text-white">Baga & Calangute Beaches</h4>
+                                <span class="text-[10px] px-2 py-0.5 mt-1 inline-block font-mono bg-red-500/10 text-red-400 border border-red-500/20 rounded font-bold uppercase tracking-wider">🔥 ADD-ON: TITOS LANE MISSION</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Pure chaotic party vibes. Highly packed shores with neon-lit shacks. Once the beach sunset finishes, march straight into the legendary Tito's Lane grid for the ultimate night crowd energy.</p>
+                        </div>
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10] order-1 md:order-2">
+                            <img src="addons/baga.jpg" alt="Baga Beach Nightlife" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-sky-950/20 via-slate-900/40 to-transparent border-l-2 border-sky-500 p-4 rounded-r-xl mt-8">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-sky-400 block mb-1">Overheard In The Car (Day 1)</span>
+                    <p class="text-xs text-slate-400 italic font-light">"Drop the absolute best lines or chaotic quotes from the drive right here once we hit the road..."</p>
+                </div>
+            </div>
+
+            <div class="space-y-12 pt-16 border-t border-slate-800">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">DAY 02</span>
+                        <h3 class="serif-title text-xl md:text-3xl text-slate-100">Heading South: Sunsets & Cliffs</h3>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">☀️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-sky-400 uppercase font-semibold">Morning</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                            <img src="addons/panjim.jpg" alt="Fontainhas Panjim" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/40 border border-sky-500/10 space-y-4 h-full flex flex-col justify-center">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-xl font-semibold text-white tracking-wide">Fontainhas (Panjim)</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2 py-0.5 rounded text-slate-400">1 HOUR WALK</span>
+                            </div>
+                            <p class="text-sm text-slate-400 leading-relaxed font-light">
+                                Arrive early in Panjim's old Latin quarter. Spend an hour cruising the bright yellow and blue historic streets for premium crew photos.
+                            </p>
+                            <div class="pt-2 border-t border-slate-800/60">
+                                <span class="text-[10px] font-mono text-amber-400 uppercase tracking-widest block mb-1">🎲 LATE NIGHT ADD-ON OPTION</span>
+                                <p class="text-xs text-slate-500 italic">"Panjim Offshore Casino run later in the evening if everyone is interested."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-slate-800/40">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🌤️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-amber-500 uppercase font-semibold">Afternoon to Sunset</h4>
+                        <span class="text-[10px] text-slate-500 font-mono ml-2 border-l border-slate-700 pl-2">2:30 PM ONWARDS</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-4 h-full order-2 md:order-1">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 tracking-wider block mb-1">SOUTH GOA EXPEDITION</span>
+                                <h4 class="text-xl font-semibold text-white serif-title">Cabo de Rama Fort</h4>
+                            </div>
+                            <ul class="space-y-3 text-sm text-slate-400 font-light">
+                                <li class="flex items-start space-x-2"><span>🥾</span> <span>Hike up the cliff trail outlines for incredible sweeping ocean views.</span></li>
+                                <li class="flex items-start space-x-2"><span>🔦</span> <span>Locate and explore the hidden cave path structural network inside the fort walls.</span></li>
+                                <li class="flex items-start space-x-2"><span>🌅</span> <span>Descent tracking down to the secret pebble beach to catch a legendary sunset.</span></li>
+                            </ul>
+                        </div>
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10] order-1 md:order-2">
+                            <img src="addons/caborama.jpg" alt="Cabo de Rama Fort" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-12 pt-16 border-t border-slate-800">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">DAY 03</span>
+                        <h3 class="serif-title text-xl md:text-3xl text-slate-100">South Goa: Lagoons, Kayaks & Boats</h3>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">☀️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-sky-400 uppercase font-semibold">Morning to Lunch</h4>
+                        <span class="text-[10px] text-slate-500 font-mono ml-2 border-l border-slate-700 pl-2">10:00 AM - 2:00 PM</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                            <img src="addons/cola.jpg" alt="Cola Beach or Salaulim Dam" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">Cola Beach OR Salaulim Dam</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">RELAX STATE</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Spend your midday window swimming and chilling out by the calm, unique fresh emerald lagoon stream waters at Cola Beach. Alternatively, guide the vehicle inland to stand on the edge of the massive Salaulim Dam spillway architecture.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-slate-800/40">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🌤️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-amber-500 uppercase font-semibold">Afternoon</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full order-2 md:order-1">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">Palolem & Butterfly Beach</h4>
+                                <span class="text-[10px] uppercase font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20 px-2.5 py-0.5 rounded font-bold shrink-0 ml-2">🌅 SUNSET MISSION</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">
+                                Hit Palolem Beach for sunset kayaking along the quiet shoreline waters. If the crew decides to explore isolated **Butterfly Beach**, link up with local shore boat operators for a quick 10-minute speed shuttle run across the coastal rocks!
+                            </p>
+                        </div>
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10] order-1 md:order-2">
+                            <img src="addons/palolem.jpg" alt="Palolem Beach Kayaking" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative border-l border-emerald-500/20 pl-6 md:pl-12 ml-2 md:ml-6 space-y-24">
+            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-950"></div>
+            <div class="mb-12">
+                <span class="text-xs uppercase tracking-[0.3em] text-emerald-400 font-semibold">Part II</span>
+                <h2 class="serif-title text-3xl md:text-5xl text-white font-medium mt-1">Gokarna & Inland Climb <span class="text-lg font-light text-slate-500 serif-title italic">(Days 4-5)</span></h2>
+            </div>
+
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">DAY 04</span>
+                        <h3 class="serif-title text-xl md:text-3xl text-slate-100">The Coastal Run</h3>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">☀️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-emerald-400 uppercase font-semibold">Morning</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                            <img src="addons/gokarna.jpg" alt="Gokarna" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">Gokarna Exploration</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">TEMPLES & BEACHES</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Spend your morning exploring the peaceful shores of Gokarna (Om Beach) or visiting the historic Mahabaleshwar Temple structure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-slate-800/40">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🌤️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-emerald-400 uppercase font-semibold">Afternoon</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full order-2 md:order-1">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">Honnavar Mangroves</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">1 HOUR DRIVE</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Check out and drive 1 hour south to Honnavar. Experience the famous elevated Mangrove boardwalk or take a quick, serene backwater boat ride.</p>
+                        </div>
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10] order-1 md:order-2">
+                            <img src="addons/honnavar.jpg" alt="Honnavar" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-slate-800/40">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🌅</span>
+                        <h4 class="text-sm font-mono tracking-widest text-amber-500 uppercase font-semibold">Late Afternoon / Sunset</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                            <img src="addons/murdeshwar.jpg" alt="Murdeshwar" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">Murdeshwar Temple</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">OVERNIGHT STAY</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Drive another 30 minutes south. Explore the massive Shiva statue and catch a stunning sunset right over the beach temple. Stay overnight in Murdeshwar or Gokarna.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-12 pt-16 border-t border-slate-800">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">DAY 05</span>
+                        <h3 class="serif-title text-xl md:text-3xl text-slate-100">The Inland Climb</h3>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🌲</span>
+                        <h4 class="text-sm font-mono tracking-widest text-emerald-400 uppercase font-semibold">Morning</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full order-2 md:order-1">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">Drive to Dandeli</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">4-5 HR DRIVE</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Start early from the coast. The drive from Murdeshwar up to Dandeli takes about 4 to 5 hours (~190 km) as you climb away from the beaches into the dense forest roads.</p>
+                        </div>
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10] order-1 md:order-2">
+                            <img src="addons/drive_dandeli.jpg" alt="Dandeli Drive" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-slate-800/40">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🛶</span>
+                        <h4 class="text-sm font-mono tracking-widest text-emerald-400 uppercase font-semibold">Afternoon Onwards</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                            <img src="addons/dandeli_rafting.jpg" alt="Dandeli Rafting" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">River Adventure</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">WATER SPORTS</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Arrive in Dandeli, check into your remote jungle stay, and head straight to the river for water rafting and adventure activities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative border-l border-amber-500/20 pl-6 md:pl-12 ml-2 md:ml-6 space-y-24">
+            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 ring-4 ring-amber-950"></div>
+            <div class="mb-12">
+                <span class="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold">Part III</span>
+                <h2 class="serif-title text-3xl md:text-5xl text-white font-medium mt-1">Sacred Stones of Hampi <span class="text-lg font-light text-slate-500 serif-title italic">(Days 6-7)</span></h2>
+            </div>
+
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">DAY 06</span>
+                        <h3 class="serif-title text-xl md:text-3xl text-slate-100">Ruins & Boulders</h3>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">☀️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-amber-400 uppercase font-semibold">Morning</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                            <img src="addons/hampi_ruins.jpg" alt="Hampi Ruins" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">Temple Expedition</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">HISTORY</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Update this note with your specific plans for exploring the magnificent ruins, Virupaksha Temple, and the surrounding boulder landscapes of Hampi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 pt-4 border-t border-slate-800/40">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🌅</span>
+                        <h4 class="text-sm font-mono tracking-widest text-amber-500 uppercase font-semibold">Late Afternoon</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full order-2 md:order-1">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">Hippie Island & Sunset</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">CHILL VIBES</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Update this block with your plans for crossing the river, taking a coracle ride on Sanapur Lake, or climbing Matanga Hill for an epic sunset.</p>
+                        </div>
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10] order-1 md:order-2">
+                            <img src="addons/hampi_sunset.jpg" alt="Hampi Sunset" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-12 pt-16 border-t border-slate-800">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xs font-mono px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">DAY 07</span>
+                        <h3 class="serif-title text-xl md:text-3xl text-slate-100">The Final Stretch</h3>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-lg">
+                        <span class="text-xl">🛣️</span>
+                        <h4 class="text-sm font-mono tracking-widest text-amber-400 uppercase font-semibold">Morning to Afternoon</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="group overflow-hidden rounded-xl bg-slate-900 aspect-[16/10]">
+                            <img src="addons/highway.jpg" alt="Drive Home" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col justify-center space-y-3 h-full">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="font-semibold text-xl text-white">The Drive Home</h4>
+                                <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800 px-2.5 py-0.5 rounded text-slate-400 shrink-0 ml-2">RETURN</span>
+                            </div>
+                            <p class="text-sm text-slate-400 font-light leading-relaxed">Wrap up any final sights in Hampi (like the Stone Chariot) before packing the car and starting the long haul back home to conclude the expedition.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-900 py-16 text-center text-xs text-slate-600 tracking-widest uppercase">
+        ON THE ROAD • THE TRIP REFERENCE LOG
+    </footer>
+
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const toggleBtn = document.getElementById('audio-toggle-btn');
+        const audioIcon = document.getElementById('audio-icon');
+        const overlay = document.getElementById('start-overlay');
+        const startBtn = document.getElementById('start-btn');
+        
+        let hasInteracted = false;
+        const lyricStartTimeSeconds = 192; 
+
+        // THE BROWSER RULE WORKAROUND: Play only when they click "Start"
+        startBtn.addEventListener('click', () => {
+            // Fade out the overlay
+            overlay.style.opacity = '0';
+            setTimeout(() => { overlay.style.display = 'none'; }, 700);
+
+            // Start the music unmuted at 192 seconds
+            audio.currentTime = lyricStartTimeSeconds;
+            audio.play().then(() => {
+                audioIcon.textContent = '🎵';
+                audioIcon.classList.add('animate-[spin_6s_infinite]');
+                hasInteracted = true;
+            }).catch(err => console.log("Audio play error:", err));
+        });
+
+        // The normal pause/play button in the bottom dock
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            if (audio.paused) {
+                if (!hasInteracted) {
+                    audio.currentTime = lyricStartTimeSeconds;
+                    hasInteracted = true;
+                }
+                audio.play();
+                audioIcon.textContent = '🎵';
+                audioIcon.classList.add('animate-[spin_6s_infinite]');
+            } else {
+                audio.pause();
+                audioIcon.textContent = '🔇';
+                audioIcon.classList.remove('animate-[spin_6s_infinite]');
+            }
+        });
+    </script>
+
+</body>
+</html>
